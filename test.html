@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple 風格滾動動畫</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            height: 200vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        .content {
+            width: 80%;
+            max-width: 600px;
+            height: 300px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            width: 100%;
+           
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <img src="https://via.placeholder.com/600x300" alt="Test Image">
+    </div>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to("img", {
+            scale: 1.5,  // 放大至1.5倍
+            opacity: 1,
+            scrollTrigger: {
+                trigger: ".content",  // 觸發元素
+                start: "top 70%",  // 當元素進入視窗 70% 時開始動畫
+                end: "top 30%",    // 當元素到達視窗 30% 時結束動畫
+                scrub: true,       // 讓動畫隨著滾動而進行
+                pin: true,         // 固定元素，直到動畫結束
+            }
+        });
+    </script>
+
+</body>
+</html>
