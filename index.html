@@ -25,6 +25,12 @@
 .text-border p{
   font-size: 3rem;
 }
+/*.title{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}*/
 </style>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -36,6 +42,18 @@
       ease: "power2.out", 
     });
   });
+  gsap.registerPlugin(ScrollTrigger) 
+  gsap.to("title", {
+            scale: 1.5,  // 放大至1.5倍
+            opacity: 1,
+            scrollTrigger: {
+                trigger: ".title",  // 觸發元素
+                start: "top 70%",  // 當元素進入視窗 70% 時開始動畫
+                end: "top 30%",    // 當元素到達視窗 30% 時結束動畫
+                scrub: true,       // 讓動畫隨著滾動而進行
+                pin: true,         // 固定元素，直到動畫結束
+            }
+        });
 </script>
 <body>
   <nav class="navbar navbar-expand-sm bg-primary navbar-dark sticky-top">
@@ -126,6 +144,9 @@
     <span class="carousel-control-next-icon"></span>
   </button>
 </div>
+<div class="title">
+  <h1>Introduction</h1>
+</div>
 <div class="container-fluid">
 <div class="row">
   <div class="col">
@@ -140,7 +161,7 @@
   </div>
   <div class="col">
     <div class="card" >
-      <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image" style="width:100%">
+      <img class="card-img-top" src="picture/IMG_9262 (1).jpg" alt="Card image" style="width:100%">
       <div class="card-body">
         <h4 class="card-title">John Doe</h4>
         <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
@@ -150,7 +171,7 @@
   </div>
   <div class="col">
     <div class="card" >
-      <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image" style="width:100%">
+      <img class="card-img-top" src="picture/IMG_0954.JPG" alt="Card image" style="width:100%">
       <div class="card-body">
         <h4 class="card-title">John Doe</h4>
         <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
@@ -160,7 +181,7 @@
   </div>
   <div class="col">
     <div class="card" >
-      <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image" style="width:100%">
+      <img class="card-img-top" src="picture/AnyConv.com__littlechick (1).jpg" alt="Card image" style="width:100%">
       <div class="card-body">
         <h4 class="card-title">John Doe</h4>
         <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
