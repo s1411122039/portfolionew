@@ -1,116 +1,81 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GSAP 手動拉動遮罩線條效果</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
-        }
-        .image-container {
-            position: relative;
-            width: 80%;
-            height: 80%;
-            overflow: hidden;
-        }
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: filter 0.2s ease;
-        }
-        .color-line {
-            position: absolute;
-            width: 3px; /* 線條寬度 */
-            height: 100%;
-            background-color: rgba(255, 0, 0, 1); /* 初始顏色為紅色 */
-            top: 0;
-            right: 0; /* 初始位置在右邊 */
-            cursor: ew-resize; /* 顯示水平拖曳光標 */
-        }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <title>Document</title>
+    
 </head>
+<style>
+    .image-container {
+  position: relative;
+  width: 100%;
+  height: 500px; /* 根据需要调整 */
+  overflow: hidden;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#original {
+  filter: grayscale(100%); /* 初始的绿色滤镜效果 */
+}
+
+#filtered {
+  filter: grayscale(0%); /* 新的滤镜效果，例如去掉绿色滤镜 */
+  z-index: 1;
+}
+
+.mask-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%; /* 初始线的位置（可以根据滚动进行调整） */
+  height: 100%;
+  background-color: white;
+  z-index: 2;
+}
+</style>
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+gsap.to(".mask-line", {
+  width: "0%", /* 线的最终位置 */
+  scrollTrigger: {
+    trigger: ".image-container", 
+    start: "top center", 
+    end: "bottom top", 
+    scrub: true,  /* 确保动画随滚动平滑进行 */
+  }
+});
+
+gsap.to("#filtered", {
+  filter: "grayscale(0%)", /* 新滤镜效果的最终状态 */
+  scrollTrigger: {
+    trigger: ".image-container",
+    start: "top center",
+    end: "bottom top",
+    scrub: true,
+  }
+});
+</script>
 <body>
-
     <div class="image-container">
-        <img src="picture/IMG_0954.JPG" id="image" alt="圖片" class="masked-image">
-        <div class="color-line" id="colorLine"></div> <!-- 顏色變化線 -->
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
-    <script>
-        const img = document.getElementById('image');
-        const colorLine = document.getElementById('colorLine');
-
-        // 滑鼠移動時改變圖片的顏色
-        document.addEventListener('mousemove', (e) => {
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
-
-            const centerX = window.innerWidth / 2;
-            const centerY = window.innerHeight / 2;
-
-            const hueX = (mouseX - centerX) / window.innerWidth * 360; // 根據水平滑鼠位置來旋轉色相
-            const hueY = (mouseY - centerY) / window.innerHeight * 360; // 根據垂直滑鼠位置來旋轉色相
-
-            // 使用 GSAP 改變濾鏡顏色效果
-            gsap.to(img, {
-                filter: `hue-rotate(${hueX + hueY}deg)`,
-                duration: 0.2,
-                ease: 'power2.out'
-            });
-        });
-
-        // 手動拖動線條並改變遮罩效果
-        let isDragging = false;
-        let startX = 0;
-        let currentRight = parseInt(window.getComputedStyle(colorLine).right) || 0;
-
-        colorLine.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startX = e.clientX;
-            colorLine.style.transition = 'none'; // 禁用過渡，使得拖動時線條不會平滑過渡
-        });
-
-        // 記錄線條的移動
-        function dragLine(e) {
-            if (isDragging) {
-                const offsetX = e.clientX - startX;
-                const newRight = currentRight - offsetX;
-
-                // 使用 GSAP 動畫來平滑移動線條
-                gsap.to(colorLine, {
-                    right: newRight + 'px',
-                    duration: 0.1
-                });
-
-                // 更新起始位置
-                startX = e.clientX;
-
-                // 根據線條的位置更新遮罩
-                const maskPosition = newRight / window.innerWidth * 100;
-                img.style.maskImage = `linear-gradient(to right, rgba(0, 0, 0, 1) ${maskPosition}%, rgba(0, 0, 0, 0) 100%)`;
-                img.style.webkitMaskImage = `linear-gradient(to right, rgba(0, 0, 0, 1) ${maskPosition}%, rgba(0, 0, 0, 0) 100%)`;
-
-                // 隨著線條的變化，改變顏色
-                const hue = maskPosition;
-                colorLine.style.backgroundColor = `hsl(${hue}, 100%, 50%)`;
-            }
-        }
-
-        document.addEventListener('mousemove', dragLine);
-
-        document.addEventListener('mouseup', () => {
-            isDragging = false;
-            colorLine.style.transition = 'right 0.1s ease'; // 恢復過渡，使得線條恢復平滑過渡
-        });
-    </script>
-
+        <div class="image" id="original">
+          <img src="picture/IMG_0954.JPG" alt="Original Image" />
+        </div>
+        <div class="image" id="filtered">
+          <img src="picture/IMG_6072.jpg" alt="Filtered Image" />
+        </div>
+        <div class="mask-line"></div>
+      </div>
 </body>
 </html>
