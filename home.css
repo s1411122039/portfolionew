@@ -38,3 +38,8 @@
     overflow: hidden;
     transition: opacity 0.3s ease, height 0.3s ease;
  }
+ .btn{
+margin-left: 155px;
+transform:scaleX(1);
+
+ }

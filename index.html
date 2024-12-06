@@ -22,7 +22,7 @@
       x: -500, 
       opacity: 0, 
       duration: 1.5, 
-      ease: "power2.out", 
+      
     });
   });
   document.addEventListener("DOMContentLoaded", function () {
@@ -70,18 +70,24 @@ document.addEventListener("DOMContentLoaded", function () {
      
      
      
-      gsap.to(content, { opacity: 1, height: 'auto', duration: 0.3, ease: 'power2.out' });
+      gsap.to(content, { opacity: 1, height: 'auto', duration: 0.3, });
     });
   
     // 滑鼠移出動畫
     title.addEventListener('mouseleave', () => {
    
-      gsap.to(title, { y: 0, duration: 0.3, ease: 'power2.out' });
+      gsap.to(title, { y: 0, duration: 0.3,  });
    
-      gsap.to(content, { opacity: 0, height: 0, duration: 0.3, ease: 'power2.out' });
+      gsap.to(content, { opacity: 0, height: 0, duration: 0.3,  });
     });
   });
 });
+document.addEventListener("DOMContentLoaded",function(){
+  const button = document.querySelectorAll('.btn');
+  button.addEventListener('mouseenter',()=>{
+    gsap.to(button,({scale:2, duration:0.3,}))
+  })
+})
 
 
 
@@ -95,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ">
           <li class="nav-item">
             <a class="nav-link active" href="#">Home</a>
           </li>
@@ -217,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="card-body">
         <h4 class="card-title">John Doe</h4>
         <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-        <a href="#" class="btn btn-primary">See Profile</a>
+        <a href="#" class="btn btn-primary " >See Profile</a>
       </div>
     </div>
   </div>
