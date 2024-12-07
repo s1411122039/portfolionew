@@ -22,7 +22,7 @@
       x: -500, 
       opacity: 0, 
       duration: 1.5, 
-      ease: "power2.out", 
+      
     });
   });
   document.addEventListener("DOMContentLoaded", function () {
@@ -35,6 +35,19 @@
     scrollTrigger: {
       triggerActions: "play none none none",
       trigger: ".title",
+      start: "top 90%",
+      end: "top 50%",
+      scrub: false,
+      
+    },
+  });
+  gsap.to(".title-2", {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    scrollTrigger: {
+      triggerActions: "play none none none",
+      trigger: ".title-2",
       start: "top 90%",
       end: "top 50%",
       scrub: false,
@@ -70,18 +83,45 @@ document.addEventListener("DOMContentLoaded", function () {
      
      
      
-      gsap.to(content, { opacity: 1, height: 'auto', duration: 0.3, ease: 'power2.out' });
+      gsap.to(content, { opacity: 1, height: 'auto', duration: 0.3,  });
     });
   
     // 滑鼠移出動畫
     title.addEventListener('mouseleave', () => {
    
-      gsap.to(title, { y: 0, duration: 0.3, ease: 'power2.out' });
+      gsap.to(title, { y: 0, duration: 0.3,  });
    
-      gsap.to(content, { opacity: 0, height: 0, duration: 0.3, ease: 'power2.out' });
+      gsap.to(content, { opacity: 0, height: 0, duration: 0.3,  });
     });
   });
 });
+document.addEventListener("DOMContentLoaded", function () {
+  // 取得所有的卡片
+  const buttons = document.querySelectorAll('.animated-btn');
+
+  
+  buttons.forEach(button => {
+    // 滑鼠移入時
+    button.addEventListener('mouseenter', () => {
+      gsap.to(button, {
+        duration: 0.3, 
+        width: '100%', 
+       
+      });
+    });
+  
+    // 滑鼠移出動畫
+    button.addEventListener('mouseleave', () => {
+      gsap.to(button, {
+        duration: 0.3, 
+        width: '40%', 
+       
+      });
+    });
+  });
+});
+
+</script>
 
 
 
@@ -181,43 +221,51 @@ document.addEventListener("DOMContentLoaded", function () {
 <!-- 卡片 -->
 <div class="container-fluid">
 <div class="row">
-  <div class="col">
+  <div class="col-12 col-sm-6 col-lg-3">
     <div class="card" >
       <img class="card-img-top " src="picture/basketballbook.png" alt="Card image" style="width:100%">
       <div class="card-body">
-        <h4 class="card-title">John Doe</h4>
+        <h4 class="card-title">Painting</h4>
         <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-        <a href="#" class="btn btn-primary" >See Profile</a>
+        <div class="text-center">
+          <a href="#" class="btn btn-primary animated-btn" >See Profile</a>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col">
+  <div class="col-12 col-sm-6 col-lg-3">
     <div class="card" >
       <img class="card-img-top" src="picture/IMG_9262 (1).jpg" alt="Card image" style="width:100%">
       <div class="card-body">
-        <h4 class="card-title">John Doe</h4>
+        <h4 class="card-title">Photography</h4>
         <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-        <a href="#" class="btn btn-primary">See Profile</a>
+        <div class="text-center">
+          <a href="#" class="btn btn-primary animated-btn" >See Profile</a>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col">
+  <div class="col-12 col-sm-6 col-lg-3">
     <div class="card" >
       <img class="card-img-top" src="picture/IMG_0954.JPG" alt="Card image" style="width:100%">
       <div class="card-body">
-        <h4 class="card-title">John Doe</h4>
+        <h4 class="card-title">Game production</h4>
         <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-        <a href="#" class="btn btn-primary " >See Profile</a>
+        <div class="text-center">
+          <a href="#" class="btn btn-primary animated-btn" >See Profile</a>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col">
+  <div class="col-12 col-sm-6 col-lg-3">
     <div class="card" >
       <img class="card-img-top" src="picture/AnyConv.com__littlechick (1).jpg" alt="Card image" style="width:100%">
       <div class="card-body">
-        <h4 class="card-title">John Doe</h4>
+        <h4 class="card-title">Animation</h4>
         <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-        <a href="#" class="btn btn-primary">See Profile</a>
+        <div class="text-center">
+          <a href="#" class="btn btn-primary animated-btn" >See Profile</a>
+        </div>
       </div>
     </div>
   </div>
@@ -225,9 +273,29 @@ document.addEventListener("DOMContentLoaded", function () {
 </div>
 
 
-<div style="height: 500px;">
-  <h1>這是空白區域</h1>
+<div class="container mt-3">
+  <h3 class="title-2" >Contact me</h3>
+ 
+    
+  <form action="/contact_me" method="POST" >
+    <div class="mb-3 mt-3">
+      <label for="uname" class="form-label">name</label>
+      <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+      
+    </div>
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone</label>
+      <input type="tel" class="form-control" id="phone" placeholder="Enter phone" name="phone" required>
+      
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="comment">Comments:</label>
+      <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+    </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 </div>
+
 </body>
 
 </html>
