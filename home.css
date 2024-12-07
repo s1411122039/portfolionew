@@ -47,10 +47,3 @@
     overflow: hidden;
     transition: opacity 0.3s ease, height 0.3s ease;
  }
- .text-center{
-   text-align: center;
- }
- .btn{
-   display: inline-block; 
-   width: auto; 
- }
