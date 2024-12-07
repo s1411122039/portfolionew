@@ -5,7 +5,7 @@ var server = express();
 var bodyParser = require("body-parser");
 
 //web root
-server.use(express.static(__dirname+"/AgencyProject"));
+server.use(express.static(__dirname+"/portfolionew"));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded());
 
@@ -23,25 +23,7 @@ var ContactDB = DB.create(__dirname+"/contact.db");
 //     { modal: "#portfolioModal3", imgSrc: "treehouse.png", heading: "Treehouse", text: "Website Design" }
 // ])
 
-server.get("/services", (req, res)=>{
-    //DB find
-    var Services=[
-        {icon: "fa-shopping-cart", heading:"E-Commerce", text:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."},
-        {icon: "fa-laptop", heading:"Responsive Design", text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."}
-    ];
-    res.send(Services);
-});
 
-server.get("/profolio", (req,res)=>{
-      //DB
-      ProfolioDB.find({}).then(results=>{
-        if(results != null){
-             res.send(results);
-        }else{
-            res.send("Error!");
-        }
-      })
-})
 
 server.post("/contact_me", (req,res)=>{
      ContactDB.insert(req.body);
