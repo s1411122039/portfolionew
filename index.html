@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
      
      
      
-      gsap.to(content, { opacity: 1, height: 'auto', duration: 0.3, ease: 'power2.out' });
+      gsap.to(content, { opacity: 1, height: 'auto', duration: 0.3,  });
     });
   
     // 滑鼠移出動畫
@@ -91,7 +91,31 @@ document.addEventListener("DOMContentLoaded", function () {
    
       gsap.to(title, { y: 0, duration: 0.3,  });
    
-      gsap.to(content, { opacity: 0, height: 0, duration: 0.3, ease: 'power2.out' });
+      gsap.to(content, { opacity: 0, height: 0, duration: 0.3,  });
+    });
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+const buttons = document.querySelectorAll('.animated-btn');
+
+  // 為每個按鈕添加事件
+  buttons.forEach(button => {
+    // 滑鼠移入時
+    button.addEventListener('mouseenter', () => {
+      gsap.to(button, {
+        duration: 0.3, // 動畫時間
+        width: '100%', // 寬度增加
+       
+      });
+    });
+
+    // 滑鼠移出時
+    button.addEventListener('mouseleave', () => {
+      gsap.to(button, {
+        duration: 0.3, // 動畫時間
+        width: '40%', // 恢復原始寬度
+       
+      });
     });
   });
 });
@@ -236,7 +260,9 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="card-body">
         <h4 class="card-title">Animation</h4>
         <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-        <a href="#" class="btn btn-primary">See Profile</a>
+        <div class="text-center">
+          <a href="#" class="btn btn-primary animated-btn" >See Profile</a>
+        </div>
       </div>
     </div>
   </div>

@@ -47,3 +47,7 @@
     overflow: hidden;
     transition: opacity 0.3s ease, height 0.3s ease;
  }
+ .btn {
+  display: inline-block; 
+  width: auto; 
+}
