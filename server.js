@@ -1,25 +1,29 @@
-var express = require("express");
-var server = express();
-var bodyParser = require("body-parser");
-server.use(express.static(__dirname + "/portfolionew"));
-server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({ extended: true }));
+const express = require("express");
+const DB = require("nedb-promises");
 
-var DB = require("nedb-promises");
-var homepageDB = DB.create(__dirname + "/homepage.db");
-var ContactDB = DB.create(__dirname + "/contact.db");
+const server = express();
+const ContactDB = DB.create(__dirname + "/contact.db");
 
-server.post("/contact_me", async (req, res) => {
-    try {
-        await ContactDB.insert(req.body);
-        res.redirect("/#contact");
-    } catch (error) {
-        console.error("Database insert failed:", error);
-        res.status(500).send("An error occurred while saving your data.");
-    }
+// 靜態檔案
+server.use(express.static(__dirname));
+
+// 中介軟體解析 body
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
+/*ContactDB.insert({ uname: "test", phone: "1234567890", text: "Hello world" })
+    .then(() => console.log("Test data inserted"))
+    .catch((err) => console.error("Database insert error:", err));*/
+
+// 路由
+server.post("/contact_me",  (req, res) => {
+ 
+        ContactDB.insert(req.body);
+        res.redirect("/aftercontactme.html");
+   
 });
-console.log("123");
 
-server.listen(3001, ()=>{
-    console.log("Server is running at port 3000.");
-})
+
+// 啟動伺服器
+server.listen(3001, () => {
+    console.log("Server is running at port 3001.");
+});
