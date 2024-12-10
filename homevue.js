@@ -1,5 +1,20 @@
 
-const app = Vue.createApp({
+const nav =Vue.createApp({
+data(){
+  return{
+    navLinks:[
+      {},
+      {},
+      {},
+    ],
+  };
+},
+});
+
+
+
+
+const carousel = Vue.createApp({
     data() {
       return {
         activeIndex: 0, // 用來記錄當前顯示的圖片索引
@@ -32,7 +47,7 @@ const app = Vue.createApp({
       };
     },
 });
-app.mount("#carousel");
+carousel.mount("#carousel");
 
 const card = Vue.createApp({
     data() {
@@ -42,21 +57,25 @@ const card = Vue.createApp({
             title: "Painting",
             text: "Some example text. John Doe is an architect and engineer.",
             imgSrc: "picture/basketballbook.png",
+            link:"#"
           },
           {
             title: "Photography",
             text: "Some example text. John Doe is an architect and engineer.",
             imgSrc: "picture/IMG_9262 (1).jpg",
+            link:"#"
           },
           {
             title: "Game production",
             text: "Some example text. John Doe is an architect and engineer.",
             imgSrc: "picture/IMG_0954.JPG",
+            link:"#"
           },
           {
             title: "Animation",
             text: "Some example text. John Doe is an architect and engineer.",
             imgSrc: "picture/AnyConv.com__littlechick (1).jpg",
+            link:"#"
           },
         ],
       };
