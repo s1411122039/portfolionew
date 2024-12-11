@@ -3,15 +3,21 @@ const nav =Vue.createApp({
 data(){
   return{
     navLinks:[
-      {},
-      {},
-      {},
+      {name:"Home",href:"#",active:true},
+      {name:"About me",href:"About_me.html",active:false},
+      
+    ],
+    PortfolioLinks:[
+     {name:"Painting",href:"#"},
+     {name:"Photography",href:"#"},
+     {name:"Game production",href:"#"},
+     {name:"Animation",href:"#"} ,
     ],
   };
 },
 });
 
-
+nav.mount("#nav")
 
 
 const carousel = Vue.createApp({

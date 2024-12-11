@@ -125,6 +125,7 @@ const buttons = document.querySelectorAll('.animated-btn');
 
 </script>
 <body>
+  <div id="nav">
   <nav class="navbar navbar-expand-sm bg-primary navbar-dark sticky-top">
     <div class="container-fluid">
       <a class="navbar-brand " href="#"></a>
@@ -142,10 +143,10 @@ const buttons = document.querySelectorAll('.animated-btn');
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Portfolio</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Painting</a></li>
-              <li><a class="dropdown-item" href="#">Photography</a></li>
-              <li><a class="dropdown-item" href="#">Game production</a></li>
-              <li><a class="dropdown-item" href="#">Animation</a></li>
+              <li v-for ="(items,index) in PortfolioLinks":key="index">
+                <a class="dropdown-item" :href="items.href">{{items.name}}</a>
+              </li>
+             
             </ul>
           </li>
         </ul>
@@ -153,6 +154,7 @@ const buttons = document.querySelectorAll('.animated-btn');
       </div>
     </div>
   </nav>
+</div>
 
   <header class="text-center text-white d-flex align-items-top justify-content-center" style="height: 580px; background: url('picture/IMG_6566.jpg') center/cover no-repeat;">
     <h3 class="slide text-border" style="padding: 150px;">Welcome to my Website! <br>
