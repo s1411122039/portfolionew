@@ -1,9 +1,10 @@
 
+//homepage nav
 const nav =Vue.createApp({
 data(){
   return{
     navLinks:[
-      {name:"Home",href:"#",active:true},
+      {name:"Home",href:"index.html",active:true},
       {name:"About me",href:"About_me.html",active:false},
       
     ],
@@ -20,6 +21,7 @@ data(){
 
 
 nav.mount("#nav")
+
 
 
 const carousel = Vue.createApp({
@@ -90,3 +92,38 @@ const card = Vue.createApp({
     },
   });
   card.mount("#card");
+//about me html
+  //about me nav
+const nav2 =Vue.createApp({
+  data(){
+    return{
+      navLinks:[
+        {name:"Home",href:"index.html",active:false},
+        {name:"About me",href:"About_me.html",active:true},
+        
+      ],
+      PortfolioLinks:[
+       {name:"Painting",href:"#"},
+       {name:"Photography",href:"#"},
+       {name:"Game production",href:"#"},
+       {name:"Animation",href:"#"} ,
+      ],
+    };
+  },
+  
+  });
+  
+  
+  nav2.mount("#nav2")
+  const aboutmelink =Vue.createApp({
+    data(){
+      return{
+        socialLinks:[
+          {name:"Facebook",href:"#"},
+          {name:"Github",href:"#"}
+          
+        ],
+      };
+    },
+  });
+  aboutmelink.mount("#aboutmelink")
