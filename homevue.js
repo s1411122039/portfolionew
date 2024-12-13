@@ -60,38 +60,25 @@ const carousel = Vue.createApp({
 carousel.mount("#carousel");
 
 const card = Vue.createApp({
-    data() {
-      return {
-        cards: [
-          {
-            title: "Painting",
-            text: "Some example text. John Doe is an architect and engineer.",
-            imgSrc: "picture/basketballbook.png",
-            link:"#"
-          },
-          {
-            title: "Photography",
-            text: "Some example text. John Doe is an architect and engineer.",
-            imgSrc: "picture/IMG_9262 (1).jpg",
-            link:"#"
-          },
-          {
-            title: "Game production",
-            text: "Some example text. John Doe is an architect and engineer.",
-            imgSrc: "picture/IMG_0954.JPG",
-            link:"#"
-          },
-          {
-            title: "Animation",
-            text: "Some example text. John Doe is an architect and engineer.",
-            imgSrc: "picture/AnyConv.com__littlechick (1).jpg",
-            link:"#"
-          },
-        ],
-      };
-    },
-  });
-  card.mount("#card");
+  data() {
+    return {
+      cards: [],
+    };
+  },
+  mounted() {
+    // 從伺服器獲取資料
+    fetch('http://localhost:3001/porfolio')
+      .then(response => response.json())
+      .then(data => {
+        this.cards = data;  // 用伺服器的資料更新 cards
+      })
+      .catch(error => {
+        console.error("獲取資料錯誤:", error);
+      });
+  }
+});
+
+card.mount("#card");
 //about me html
   //about me nav
 const nav2 =Vue.createApp({
