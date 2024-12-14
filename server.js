@@ -1,4 +1,6 @@
 const express = require("express");
+const cors = require('cors');
+
 const DB = require("nedb-promises");
 
 const server = express();
@@ -13,28 +15,24 @@ server.use(express.urlencoded({ extended: true }));
 /*ContactDB.insert({ uname: "test", phone: "1234567890", text: "Hello world" })
     .then(() => console.log("Test data inserted"))
     .catch((err) => console.error("Database insert error:", err));*/
-   /* ProfolioDB.insert({
+  /* ProfolioDB.insert({
+        modal:"card1",
         title: "My First Card",
         text: "This is a description for my first card.",
         imgSrc: "picture/basketballbook.png",
         link: "#",
-      })
-        .then(() => {
-          console.log("Data inserted successfully into ProfolioDB.");
-        })
-        .catch(err => {
-          console.error("Error inserting data into ProfolioDB:", err);
-        });*/
-        server.get("/porfolio", (req, res) => {
-            ProfolioDB.find({})
-              .then(results => {
-                res.json(results); // 返回資料庫中的所有資料
-              })
-              .catch(err => {
-                console.error("Database query error:", err);
-                res.status(500).send({ error: "Database query error" });
-              });
-          });
+      })*/
+      
+        server.get("/profolio", (req,res)=>{
+          //DB
+          ProfolioDB.find({}).then(results=>{
+            if(results != null){
+                 res.send(results);
+            }else{
+                res.send("Error!");
+            }
+          })
+    })
 // 路由
 server.post("/contact_me",  (req, res) => {
  

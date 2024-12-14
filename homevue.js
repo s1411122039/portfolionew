@@ -59,26 +59,29 @@ const carousel = Vue.createApp({
 });
 carousel.mount("#carousel");
 
-const card = Vue.createApp({
+const cardApp = Vue.createApp({
   data() {
     return {
-      cards: [],
+      cards: [], // 存放從後端獲取的資料
     };
   },
   mounted() {
-    // 從伺服器獲取資料
-    fetch('http://localhost:3001/porfolio')
-      .then(response => response.json())
-      .then(data => {
-        this.cards = data;  // 用伺服器的資料更新 cards
-      })
-      .catch(error => {
-        console.error("獲取資料錯誤:", error);
-      });
+    // 使用 Ajax 獲取資料
+    $.ajax({
+      url: "/profolio",
+      method: "get",
+      dataType: "json",
+      success: results => {
+        this.cards = results; // 將資料賦值給 Vue 的 cards
+      },
+      error: err => {
+        console.error("Error fetching data:", err);
+      }
+    });
   }
 });
 
-card.mount("#card");
+cardApp.mount("#card");
 //about me html
   //about me nav
 const nav2 =Vue.createApp({

@@ -12,6 +12,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
  
   
 </head>
@@ -203,8 +204,9 @@ const buttons = document.querySelectorAll('.animated-btn');
 <!-- 卡片 -->
 <div id="card">
   <div class="container-fluid">
-    <div class="row">                              <!-- 迭代陣列 目的將vue中的cards資料一一生成-->
-      <div class="col-12 col-sm-6 col-lg-3" v-for="card in cards" :key="card.title"> <!-- key用於標示每個元素 避免出現重新生成問題-->
+    <div class="row">
+      <!-- 使用 Vue 迭代資料 -->
+      <div class="col-12 col-sm-6 col-lg-3" v-for="card in cards" :key="card.title">
         <div class="card">
           <img class="card-img-top" :src="card.imgSrc" alt="Card image" style="width:100%">
           <div class="card-body">
@@ -247,6 +249,7 @@ const buttons = document.querySelectorAll('.animated-btn');
     <p>聯絡我: <a href="mailto:example@example.com" class="text-white">abc0979775465@gmail.com</a></p>
   </div>
 </footer>
+
 <script src="homevue.js"></script>
 </body>
 
