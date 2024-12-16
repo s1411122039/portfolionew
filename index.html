@@ -12,7 +12,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
  
   
 </head>
@@ -128,7 +128,7 @@ const buttons = document.querySelectorAll('.animated-btn');
 </script>
 <body>
   <div id="nav">
-  <nav class="navbar navbar-expand-sm bg-primary navbar-dark sticky-top">
+  <nav class="navbar navbar-expand-sm bg-primary navbar-dark fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand " href="#"></a>
       <img src="picture/logo.png" alt="logo" width="50px" height="50px" style="margin: 0px 20px 0px 0px;">
@@ -157,13 +157,13 @@ const buttons = document.querySelectorAll('.animated-btn');
     </div>
   </nav>
 </div>
-
-  <header class="text-center text-white d-flex align-items-top justify-content-center" style="height: 580px; background: url('picture/IMG_6566.jpg') center/cover no-repeat;">
-    <h3 class="slide text-border" style="padding: 150px;">Welcome to my Website! <br>
-      <p style="padding: 100px;">Portfolio</p>
+<header class="text-center text-white d-flex align-items-center justify-content-center" style="background-image: url('picture/IMG_6566.jpg'); background-size: cover; background-position: center; height: 100vh;">
+  <div class="container">
+    <h3 class="slide text-border" style="padding-top: 50px; padding-bottom: 20px;">Welcome to my Website! <br>
+      <p style="padding-top: 20px;">Portfolio</p>
     </h3>
-    
-  </header>
+  </div>
+</header>
  <!-- Carousel -->
 <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
@@ -249,7 +249,7 @@ const buttons = document.querySelectorAll('.animated-btn');
     <p>聯絡我: <a href="mailto:example@example.com" class="text-white">abc0979775465@gmail.com</a></p>
   </div>
 </footer>
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="homevue.js"></script>
 </body>
 

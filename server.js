@@ -12,6 +12,8 @@ const ProfolioDB = DB.create(__dirname+"/porfolio.db");
 // 中介軟體解析 body
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
+
+
 /*ContactDB.insert({ uname: "test", phone: "1234567890", text: "Hello world" })
     .then(() => console.log("Test data inserted"))
     .catch((err) => console.error("Database insert error:", err));*/
