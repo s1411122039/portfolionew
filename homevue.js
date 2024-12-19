@@ -31,7 +31,7 @@ data(){
       
     ],
     PortfolioLinks:[
-     {name:"Painting",href:"#"},
+     {name:"Painting",href:"Painting.html"},
      {name:"Photography",href:"#"},
      {name:"Game production",href:"#"},
      {name:"Animation",href:"#"} ,
@@ -93,7 +93,7 @@ const nav2 =Vue.createApp({
         
       ],
       PortfolioLinks:[
-       {name:"Painting",href:"#"},
+       {name:"Painting",href:"Painting.html"},
        {name:"Photography",href:"#"},
        {name:"Game production",href:"#"},
        {name:"Animation",href:"#"} ,
@@ -105,6 +105,28 @@ const nav2 =Vue.createApp({
   
   
   nav2.mount("#nav2")
+
+  const nav3 =Vue.createApp({
+    data(){
+      return{
+        navLinks:[
+          {name:"Home",href:"index.html",active:false},
+          {name:"About me",href:"About_me.html",active:false},
+          
+        ],
+        PortfolioLinks:[
+         {name:"Painting",href:"Painting.html"},
+         {name:"Photography",href:"#"},
+         {name:"Game production",href:"#"},
+         {name:"Animation",href:"#"} ,
+        ],
+      };
+    },
+    
+    });
+    
+    
+    nav3.mount("#nav3")
   const aboutmelink =Vue.createApp({
     data(){
       return{

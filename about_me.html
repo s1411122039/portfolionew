@@ -11,77 +11,97 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.min.js"></script>
     <link rel="stylesheet" href="about_me.css">
     <title>About me!</title>
+
+    
 </head>
 
 <body>
     <div id="nav2">
         <nav class="navbar navbar-expand-sm bg-primary navbar-dark sticky-top">
           <div class="container-fluid">
-            <a class="navbar-brand " href="#"></a>
-            <img src="picture/logo.png" alt="logo" width="50px" height="50px" style="margin: 0px 20px 0px 0px;">
+            <a class="navbar-brand " href="#">
+                <img src="picture/logo.png" alt="logo" width="50px" height="50px" style="margin: 0px 20px 0px 0px;">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
               <ul class="navbar-nav ">
-              <li class="nav-item" v-for="(link , index) in navLinks " :key ="index">
-                   <a class="nav-link" :href="link.href":class="{active: link.active}">
+                <li class="nav-item" v-for="(link , index) in navLinks " :key ="index">
+                   <a class="nav-link" :href="link.href" :class="{active: link.active}">
                     {{link.name}}
                    </a>
-              </li>
+                </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Portfolio</a>
                   <ul class="dropdown-menu">
-                    <li v-for ="(items,index) in PortfolioLinks":key="index">
+                    <li v-for="(items,index) in PortfolioLinks" :key="index">
                       <a class="dropdown-item" :href="items.href">{{items.name}}</a>
                     </li>
-                   
                   </ul>
                 </li>
               </ul>
-      
             </div>
           </div>
         </nav>
       </div>
-      <header class="text-center py-5">
+
+    <header class="text-center py-5">
         <h1>About Me</h1>
     </header>
 
     <section class="container py-5">
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-12 text-center mb-4">
+            <div class="col-lg-6 col-md-6 col-12 text-center mb-4">
                 <img src="picture/logo.png" alt="Profile Photo" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px;">
-                <h2>我是 [你的名字]</h2>
-                <p>簡單介紹自己，告訴大家你是做什麼的。這裡可以描述你的專業領域、興趣或一些成就。</p>
+                <h2>我是 李建勳</h2>
+                <p>目前就學於國立台中科技大學多媒體設計系。</p>
             </div>
 
-            <div class="col-lg-8 col-md-6 col-12">
+            <div class="col-lg-6 col-md-6 col-12">
                 <h3>我的經歷</h3>
-                <p>在這一部分，可以提到你的教育背景、工作經歷或是你做過的有趣項目。</p>
+                <p>製作過恐怖類型、投籃類型的遊戲。</p>
+                <p>前端網頁切版、視覺效果調整。</p>
+                <p>資料庫建立。</p>
 
                 <h3>我的技能</h3>
                 <ul>
-                    <li>技能1</li>
-                    <li>技能2</li>
-                    <li>技能3</li>
+                    <li>遊戲程式撰寫 (Unity)</li>
+                    <li>前端網頁程式撰寫 (HTML, CSS, JS)</li>
+                    <li>後端資料庫建立 (MySQL)</li>
                 </ul>
 
                 <h3>聯繫我</h3>
                 <p>你可以聯繫我通過以下方式：</p>
-            <div id="aboutmelink">
-                <div class="social-links">
-                    <a v-for="(link,index) in socialLinks":key="index":href="link.href" target="_blank" class="btn btn-link">
-                        {{ link.name }}
-                    </a>
-                   
+                <div id="aboutmelink">
+                    <div class="social-links">
+                        <a v-for="(link,index) in socialLinks" :key="index" :href="link.href" target="_blank" class="btn btn-link">
+                            {{ link.name }}
+                        </a>
+                    </div>
                 </div>
-            </div>
-                <a href="mailto:your-email@example.com" class="cta-button btn btn-primary mt-3">發送郵件</a>
+                <a href="mailto:abc0979775465@gmail.com" class="cta-button btn btn-primary mt-3">發送郵件</a>
             </div>
         </div>
     </section>
 
     <script src="homevue.js"></script>
+    <script>
+        // 使用 GSAP 動畫
+        gsap.from(".navbar", { opacity: 0, duration: 1, y: -50 });
+        gsap.from(".img-fluid", {
+            opacity: 0,
+            duration: 1.5,
+            scale: 0.8,
+            delay: 0.5,
+            scrollTrigger: {
+                trigger: ".img-fluid",
+                start: "top 80%",
+                end: "bottom 30%",
+                scrub: true
+            }
+        });
+        gsap.from("h2, p", { opacity: 0, duration: 1.5, y: 30, delay: 1, stagger: 0.2 });
+    </script>
 </body>
 </html>

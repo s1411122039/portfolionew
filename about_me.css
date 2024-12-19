@@ -1,0 +1,51 @@
+body {
+    background: #f4f4f9;
+}
+
+header {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    padding: 50px 0;
+}
+
+.navbar {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.1);
+}
+
+.cta-button {
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+.social-links a {
+    transition: transform 0.3s ease, color 0.3s ease;
+    margin: 0 10px;
+}
+
+.social-links a:hover {
+    transform: scale(1.1);
+    color: #2575fc;
+}
+
+.img-fluid {
+    transition: transform 0.3s ease;
+}
+
+.img-fluid:hover {
+    transform: scale(1.05);
+}
+
+.container {
+    margin-top: 50px;
+}
