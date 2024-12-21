@@ -1,41 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作品集</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.min.js"></script>
- 
-    <title>Painting</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.1/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.1/dist/ScrollTrigger.min.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const timeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".portfolio-section",
+                start: "top top",
+                end: "+=600%", // 擴大滾動範圍，讓動畫持續更長
+                scrub: true,
+                pin: true,
+                markers: true, // 用於調試，可以移除
+            },
+        });
 
-    
+        // 作品 1
+        timeline
+            .from(".portfolio-item-1", {
+                opacity: 0,
+                duration: 1
+            })
+            .to(".portfolio-item-1", {
+                y: "-100%",
+                opacity: 0,
+                duration: 1
+            });
+
+        // 作品 2
+        timeline
+            .from(".portfolio-item-2", {
+                opacity: 0,
+                duration: 1
+            })
+            .to(".portfolio-item-2", {
+                y: "-100%",
+                opacity: 0,
+                duration: 1
+            });
+
+        // 作品 3
+        timeline
+            .from(".portfolio-item-3", {
+                opacity: 0,
+                duration: 1
+            })
+            .to(".portfolio-item-3", {
+                y: "-100%",
+                opacity: 0,
+                duration: 1
+            });
+
+        // 作品 4
+        timeline
+            .from(".portfolio-item-4", {
+                opacity: 0,
+                duration: 1
+            })
+            .to(".portfolio-item-4", {
+                x: "-100%",
+                opacity: 0,
+                duration: 1
+            });
+
+        // 作品 5
+        timeline
+            .from(".portfolio-item-5", {
+                opacity: 0,
+                duration: 1
+            })
+            .to(".portfolio-item-5", {
+                x: "100%",
+                opacity: 0,
+                duration: 1
+            });
+
+        // 作品 6
+        timeline
+            .from(".portfolio-item-6", {
+                opacity: 0,
+                duration: 1
+            })
+            .to(".portfolio-item-6", {
+                y: "100%",
+                opacity: 0,
+                duration: 1
+            });
+    });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .portfolio-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .portfolio-item .info {
+            position: absolute;
+            bottom: 20%;
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 8px;
+            width: 80%;
+        }
+
+        .portfolio-item .info h3 {
+            font-size: 1.5em;
+            margin: 0;
+        }
+
+        .portfolio-item .info p {
+            font-size: 1.1em;
+        }
+
+        .portfolio-section {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .portfolio-item-1 {
+            background-image: url('picture/time.jpg');
+        }
+
+        .portfolio-item-2 {
+            background-image: url('picture/monster.jpg');
+        }
+
+        .portfolio-item-3 {
+            background-image: url('picture/body.jpg');
+        }
+
+        .portfolio-item-4 {
+            background-image: url('picture/basketballbook.png'); /* 請替換為實際圖片路徑 */
+        }
+
+        .portfolio-item-5 {
+            background-image: url('picture/02.jpg'); /* 請替換為實際圖片路徑 */
+        }
+
+        .portfolio-item-6 {
+            background-image: url('picture/03.jpg'); /* 請替換為實際圖片路徑 */
+        }
+    </style>
 </head>
-
 <body>
     <div id="nav3">
-        <nav class="navbar navbar-expand-sm bg-primary navbar-dark sticky-top">
+        <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
           <div class="container-fluid">
-            <a class="navbar-brand " href="#">
-                <img src="picture/logo.png" alt="logo" width="50px" height="50px" style="margin: 0px 20px 0px 0px;">
-            </a>
+            <a class="navbar-brand" href="#"></a>
+            <img src="picture/logo.png" alt="logo" width="50px" height="50px" style="margin: 0px 20px 0px 0px;">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
-              <ul class="navbar-nav ">
-                <li class="nav-item" v-for="(link , index) in navLinks " :key ="index">
-                   <a class="nav-link" :href="link.href" :class="{active: link.active}">
-                    {{link.name}}
-                   </a>
+              <ul class="navbar-nav">
+                <li class="nav-item" v-for="(link, index) in navLinks" :key="index">
+                   <a class="nav-link" :href="link.href" :class="{active: link.active}">{{link.name}}</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Portfolio</a>
                   <ul class="dropdown-menu">
-                    <li v-for="(items,index) in PortfolioLinks" :key="index">
+                    <li v-for="(items, index) in PortfolioLinks" :key="index">
                       <a class="dropdown-item" :href="items.href">{{items.name}}</a>
                     </li>
                   </ul>
@@ -44,9 +206,137 @@
             </div>
           </div>
         </nav>
-      </div>
+    </div>
+    <header class="text-center" style="margin-top: 10px;">
+        <h1>Painting</h1>
+    </header>
+
+    <div class="container-fluid">
+        <section class="portfolio-section">
+            <div class="col-12">
+                <div class="portfolio-item portfolio-item-1">
+                    <div class="info">
+                        <h3>光柵動畫</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="portfolio-item portfolio-item-2">
+                    <div class="info">
+                        <h3>手繪怪物設計</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="portfolio-item portfolio-item-3">
+                    <div class="info">
+                        <h3>手繪人體設計</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="portfolio-item portfolio-item-4">
+                    <div class="info">
+                        <h3>手翻書</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="portfolio-item portfolio-item-5">
+                    <div class="info">
+                        <h3>材質縫合</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="portfolio-item portfolio-item-6">
+                    <div class="info">
+                        <h3>點線面繪畫</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section id="new-portfolio-cards" class="container my-5">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
+            <div class="col">
+                <div class="card">
+                    <img src="picture/time.jpg" class="card-img-top" alt="作品1">
+                    <div class="card-body">
+                        <h5 class="card-title">光柵動畫</h5>
+                        <p class="card-text">這是我創作的光柵動畫作品，展示了創意與技術的結合。</p>
+                        <a href="#" class="btn btn-primary">查看更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="picture/monster.jpg" class="card-img-top" alt="作品2">
+                    <div class="card-body">
+                        <h5 class="card-title">手繪怪物設計</h5>
+                        <p class="card-text">這是我手繪的怪物設計，融合了幻想與藝術。</p>
+                        <a href="#" class="btn btn-primary">查看更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="picture/body.jpg" class="card-img-top" alt="作品3">
+                    <div class="card-body">
+                        <h5 class="card-title">手繪人體設計</h5>
+                        <p class="card-text">這是我手繪的人體設計，展示了細緻的肌肉結構。</p>
+                        <a href="#" class="btn btn-primary">查看更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="picture/basketballbook.png" class="card-img-top" alt="作品4">
+                    <div class="card-body">
+                        <h5 class="card-title">手翻書</h5>
+                        <p class="card-text">這是我設計的手翻書，為讀者帶來互動式的閱讀體驗。</p>
+                        <a href="#" class="btn btn-primary">查看更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="picture/02.jpg" class="card-img-top" alt="作品5">
+                    <div class="card-body">
+                        <h5 class="card-title">材質縫合</h5>
+                        <p class="card-text">這是我進行的材質縫合實驗，探索不同材料的搭配。</p>
+                        <a href="#" class="btn btn-primary">查看更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="picture/03.jpg" class="card-img-top" alt="作品6">
+                    <div class="card-body">
+                        <h5 class="card-title">點線面繪畫</h5>
+                        <p class="card-text">這是我創作的點線面繪畫作品，表現了簡單的幾何美學。</p>
+                        <a href="#" class="btn btn-primary">查看更多</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+          <p>&copy; 2024 . 版權所有.</p>
+          <p>聯絡我: <a href="mailto:example@example.com" class="text-white">abc0979775465@gmail.com</a></p>
+        </div>
+      </footer>
 
     <script src="homevue.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

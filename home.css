@@ -30,7 +30,7 @@
    transform: translateY(50px); /* 位移效果 */
  }
  .card{
-    opacity: 0;
+    opacity: 1;
  }
  .card-title{
     font-size: 24px;

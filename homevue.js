@@ -105,7 +105,19 @@ const nav2 =Vue.createApp({
   
   
   nav2.mount("#nav2")
-
+  const aboutmelink =Vue.createApp({
+    data(){
+      return{
+        socialLinks:[
+          {name:"Facebook",href:"#"},
+          {name:"Github",href:"#"}
+          
+        ],
+      };
+    },
+  });
+  aboutmelink.mount("#aboutmelink")
+  //painting 
   const nav3 =Vue.createApp({
     data(){
       return{
@@ -127,15 +139,29 @@ const nav2 =Vue.createApp({
     
     
     nav3.mount("#nav3")
-  const aboutmelink =Vue.createApp({
-    data(){
-      return{
-        socialLinks:[
-          {name:"Facebook",href:"#"},
-          {name:"Github",href:"#"}
+
+    const painting = Vue.createApp({
+      data() {
+        return {
+          paintings: [
           
-        ],
-      };
-    },
-  });
-  aboutmelink.mount("#aboutmelink")
+          
+          ],
+        };
+      
+      },
+      mounted(){
+        $.ajax({
+          url: "/painting",
+          method: "get",
+          dataType: "json",
+          success: results => {
+            this.paintings = results; // 將資料賦值給 Vue 的 cards
+          },
+          error: err => {
+            console.error("Error fetching data:", err);
+          }
+        });
+      }
+    });
+    painting.mount('#painting');
