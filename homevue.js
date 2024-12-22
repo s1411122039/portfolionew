@@ -10,7 +10,7 @@ data(){
     ],
     PortfolioLinks:[
      {name:"Painting",href:"Painting.html"},
-     {name:"Photography",href:"#"},
+     {name:"Photography",href:"Photography.html"},
      {name:"Game production",href:"#"},
      {name:"Animation",href:"#"} ,
     ],
@@ -94,7 +94,7 @@ const nav2 =Vue.createApp({
       ],
       PortfolioLinks:[
        {name:"Painting",href:"Painting.html"},
-       {name:"Photography",href:"#"},
+       {name:"Photography",href:"Photography.html"},
        {name:"Game production",href:"#"},
        {name:"Animation",href:"#"} ,
       ],
@@ -128,7 +128,7 @@ const nav2 =Vue.createApp({
         ],
         PortfolioLinks:[
          {name:"Painting",href:"Painting.html"},
-         {name:"Photography",href:"#"},
+         {name:"Photography",href:"Photography.html"},
          {name:"Game production",href:"#"},
          {name:"Animation",href:"#"} ,
         ],
@@ -165,3 +165,25 @@ const nav2 =Vue.createApp({
       }
     });
     painting.mount('#painting');
+    //photography
+    const nav4 =Vue.createApp({
+      data(){
+        return{
+          navLinks:[
+            {name:"Home",href:"index.html",active:false},
+            {name:"About me",href:"About_me.html",active:false},
+            
+          ],
+          PortfolioLinks:[
+           {name:"Painting",href:"Painting.html"},
+           {name:"Photography",href:"Photography.html"},
+           {name:"Game production",href:"#"},
+           {name:"Animation",href:"#"} ,
+          ],
+        };
+      },
+      
+      });
+      
+      
+      nav4.mount("#nav4")

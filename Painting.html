@@ -15,10 +15,10 @@
             scrollTrigger: {
                 trigger: ".portfolio-section",
                 start: "top top",
-                end: "+=600%", // 擴大滾動範圍，讓動畫持續更長
+                end: "+=600%", 
                 scrub: true,
                 pin: true,
-                markers: true, // 用於調試，可以移除
+               
             },
         });
 
@@ -94,6 +94,50 @@
                 duration: 1
             });
     });
+document.addEventListener("DOMContentLoaded",function(){
+   const timeline2 =gsap.timeline({
+    scrollTrigger: {
+                trigger: ".scroll",
+                start: "top 30%",
+                end: "bottom top", 
+                scrub: true,
+              
+          
+            },
+   })
+   //標題
+   timeline2
+            .from(".scroll", {
+                opacity: 1,
+             
+            })
+            .to(".scroll", {
+              
+                opacity: 0,
+                
+            });
+});
+document.addEventListener("DOMContentLoaded",function(){
+  const timeline3 = gsap.timeline({
+    scrollTrigger: {
+                trigger: ".card",
+                start: "top 30%",
+                end: "bottom top", 
+                scrub: true,
+               
+              
+          
+            },
+  })
+  timeline3
+           .from(".card",{
+              opacity:0,
+           })
+           .to(".card",{
+            opacity:1,
+           })
+})
+
     </script>
     <style>
         body {
@@ -178,6 +222,10 @@
         .portfolio-item-6 {
             background-image: url('picture/03.jpg'); /* 請替換為實際圖片路徑 */
         }
+        .scroll{
+            opacity: 1;
+        }
+       
     </style>
 </head>
 <body>
@@ -210,7 +258,9 @@
     <header class="text-center" style="margin-top: 10px;">
         <h1>Painting</h1>
     </header>
-
+<div class="scroll" style="display: flex; align-items: center; justify-content: center; margin-top: 50px;">
+    <h1 >往下</h1>
+</div>
     <div class="container-fluid">
         <section class="portfolio-section">
             <div class="col-12">
