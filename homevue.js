@@ -11,7 +11,7 @@ data(){
     PortfolioLinks:[
      {name:"Painting",href:"Painting.html"},
      {name:"Photography",href:"Photography.html"},
-     {name:"Game production",href:"#"},
+     {name:"Game production",href:"Game_production.html"},
      {name:"Animation",href:"#"} ,
     ],
   };
@@ -95,7 +95,7 @@ const nav2 =Vue.createApp({
       PortfolioLinks:[
        {name:"Painting",href:"Painting.html"},
        {name:"Photography",href:"Photography.html"},
-       {name:"Game production",href:"#"},
+       {name:"Game production",href:"Game_production.html"},
        {name:"Animation",href:"#"} ,
       ],
     };
@@ -129,7 +129,7 @@ const nav2 =Vue.createApp({
         PortfolioLinks:[
          {name:"Painting",href:"Painting.html"},
          {name:"Photography",href:"Photography.html"},
-         {name:"Game production",href:"#"},
+         {name:"Game production",href:"Game_production.html"},
          {name:"Animation",href:"#"} ,
         ],
       };
@@ -177,7 +177,7 @@ const nav2 =Vue.createApp({
           PortfolioLinks:[
            {name:"Painting",href:"Painting.html"},
            {name:"Photography",href:"Photography.html"},
-           {name:"Game production",href:"#"},
+           {name:"Game production",href:"Game_production.html"},
            {name:"Animation",href:"#"} ,
           ],
         };
@@ -187,3 +187,25 @@ const nav2 =Vue.createApp({
       
       
       nav4.mount("#nav4")
+      //game production
+      const nav5 =Vue.createApp({
+        data(){
+          return{
+            navLinks:[
+              {name:"Home",href:"index.html",active:false},
+              {name:"About me",href:"About_me.html",active:false},
+              
+            ],
+            PortfolioLinks:[
+             {name:"Painting",href:"Painting.html"},
+             {name:"Photography",href:"Photography.html"},
+             {name:"Game production",href:"Game_production.html"},
+             {name:"Animation",href:"#"} ,
+            ],
+          };
+        },
+        
+        });
+        
+        
+        nav5.mount("#nav5")
