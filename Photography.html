@@ -36,15 +36,15 @@
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.8);
-    display: none; /* 預設隱藏 */
+    display: none; 
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
 
 .fullscreen-overlay img {
-    max-width: 90%; /* 確保圖片寬度不超過螢幕寬度的 90% */
-    max-height: 90%; /* 確保圖片高度不超過螢幕高度的 90% */
+    max-width: 90%; 
+    max-height: 90%; 
     width: auto;
     height: auto;
     border-radius: 8px;
@@ -53,20 +53,20 @@
 }
 
 .fullscreen-overlay img:hover {
-    transform: scale(1.05); /* 滑鼠懸停時放大效果 */
+    transform: scale(1.05); 
 }
 
 
 @media (max-width: 768px) {
     .fullscreen-overlay img {
-        max-width: 80%; /* 手機或窄螢幕時限制圖片大小 */
+        max-width: 80%;
         max-height: 80%;
     }
 }
 
 @media (max-width: 576px) {
     .fullscreen-overlay img {
-        max-width: 70%; /* 更小的螢幕時進一步限制圖片大小 */
+        max-width: 70%; 
         max-height: 70%;
     }
 }
@@ -97,7 +97,7 @@
     const fullscreenImage = document.getElementById("fullscreen-image");
 
     // 找到所有圖片元素
-    const galleryImages = document.querySelectorAll(".gallery img, .container img");
+    const galleryImages = document.querySelectorAll(".container img");
 
     let isOverlayVisible = false; // 是否顯示
 
@@ -119,10 +119,10 @@
     });
 
     // 點擊關閉
-    overlay.addEventListener("click", () => {
+ /*   overlay.addEventListener("click", () => {
         overlay.style.display = "none"; 
         isOverlayVisible = false; 
-    });
+    });*/
 });
     </script>
 </head>
@@ -160,6 +160,7 @@
         <h1>我的攝影作品集</h1>
         <p>探索我的攝影世界</p>
     </header>
+    <!-- 虛擬視窗 -->
     <div id="fullscreen-overlay" class="fullscreen-overlay">
         <img id="fullscreen-image" src="" alt="fullscreen">
     </div>
