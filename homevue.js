@@ -5,7 +5,7 @@ data(){
   return{
     navLinks:[
       {name:"Home",href:"index.html",active:true},
-      {name:"About me",href:"About_me.html",active:false},
+      {name:"About me",href:"about_me.html",active:false},
       
     ],
     PortfolioLinks:[
@@ -89,7 +89,7 @@ const nav2 =Vue.createApp({
     return{
       navLinks:[
         {name:"Home",href:"index.html",active:false},
-        {name:"About me",href:"About_me.html",active:true},
+        {name:"About me",href:"about_me.html",active:true},
         
       ],
       PortfolioLinks:[
@@ -123,7 +123,7 @@ const nav2 =Vue.createApp({
       return{
         navLinks:[
           {name:"Home",href:"index.html",active:false},
-          {name:"About me",href:"About_me.html",active:false},
+          {name:"About me",href:"about_me.html",active:false},
           
         ],
         PortfolioLinks:[
@@ -171,7 +171,7 @@ const nav2 =Vue.createApp({
         return{
           navLinks:[
             {name:"Home",href:"index.html",active:false},
-            {name:"About me",href:"About_me.html",active:false},
+            {name:"About me",href:"about_me.html",active:false},
             
           ],
           PortfolioLinks:[
@@ -193,7 +193,7 @@ const nav2 =Vue.createApp({
           return{
             navLinks:[
               {name:"Home",href:"index.html",active:false},
-              {name:"About me",href:"About_me.html",active:false},
+              {name:"About me",href:"about_me.html",active:false},
               
             ],
             PortfolioLinks:[
