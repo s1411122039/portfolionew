@@ -11,8 +11,8 @@ data(){
     PortfolioLinks:[
      {name:"Painting",href:"Painting.html"},
      {name:"Photography",href:"Photography.html"},
-     {name:"Game production",href:"Game_production.html"},
-     {name:"Animation",href:"#"} ,
+     
+     {name:"Animation",href:"Animation.html"} ,
     ],
   };
 },
@@ -95,8 +95,8 @@ const nav2 =Vue.createApp({
       PortfolioLinks:[
        {name:"Painting",href:"Painting.html"},
        {name:"Photography",href:"Photography.html"},
-       {name:"Game production",href:"Game_production.html"},
-       {name:"Animation",href:"#"} ,
+       
+       {name:"Animation",href:"Animation.html"} ,
       ],
     };
   },
@@ -129,8 +129,8 @@ const nav2 =Vue.createApp({
         PortfolioLinks:[
          {name:"Painting",href:"Painting.html"},
          {name:"Photography",href:"Photography.html"},
-         {name:"Game production",href:"Game_production.html"},
-         {name:"Animation",href:"#"} ,
+         
+         {name:"Animation",href:"Animation.html"} ,
         ],
       };
     },
@@ -177,8 +177,8 @@ const nav2 =Vue.createApp({
           PortfolioLinks:[
            {name:"Painting",href:"Painting.html"},
            {name:"Photography",href:"Photography.html"},
-           {name:"Game production",href:"Game_production.html"},
-           {name:"Animation",href:"#"} ,
+           
+           {name:"Animation",href:"Animation.html"} ,
           ],
         };
       },
@@ -199,8 +199,8 @@ const nav2 =Vue.createApp({
             PortfolioLinks:[
              {name:"Painting",href:"Painting.html"},
              {name:"Photography",href:"Photography.html"},
-             {name:"Game production",href:"Game_production.html"},
-             {name:"Animation",href:"#"} ,
+             
+             {name:"Animation",href:"Animation.html"} ,
             ],
           };
         },
