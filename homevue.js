@@ -41,16 +41,11 @@ const carousel = Vue.createApp({
             imgSrc: "picture/IMG_8383.jpg",
             alt: "Photography"
           },
-          {
-            title: "Game production",
-            description: "We had such a great time in LA!",
-            imgSrc: "picture/gamedevelop.jpg",
-            alt: "Game production"
-          },
+        
           {
             title: "Animation",
             description: "We had such a great time in LA!",
-            imgSrc: "picture/gamedevelop.jpg",
+            imgSrc: "picture/littlechick01.jpg",
             alt: "Animation"
           }
         ]
