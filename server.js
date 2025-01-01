@@ -15,6 +15,11 @@ const photographyDB = DB.create(__dirname+"/photography.db");
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
+/*ProfolioDB.insert([
+  {modal:"card1",title:"Painting",text:"This is a description for my first card.",imgSrc:"picture/basketballbook.png",link:"Painting.html","_id":"7ZJYJH2RLk8Nbtaa"},
+{modal:"card2",title:"Photography",text:"This is a description for my second card.",imgSrc:"picture/IMG_9262 (1).jpg",link:"Photography.html","_id":"VBOa1pcJd4no9qyP"},
+{modal:"card4",title:"Animation",text:"This is a description for my fourth card.",imgSrc:"picture/littlechick01.jpg",link:"Animation.html","_id":"f3yMEMCXFqa2v2yG"}
+])*/
 
 /*const paintingData = [
   
