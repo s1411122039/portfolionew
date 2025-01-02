@@ -208,7 +208,7 @@ const nav2 =Vue.createApp({
         const photos = Vue.createApp({
           data() {
             return {
-              photos: [], // 存放從後端獲取的資料
+              photos: [], 
             };
           },
           mounted() {
@@ -218,13 +218,53 @@ const nav2 =Vue.createApp({
               method: "get",
               dataType: "json",
               success: results => {
-                this.photos = results; // 將資料賦值給 Vue 的 cards
+                this.photos = results; 
+                this.$nextTick(() => {//用於處理確保DOM執行完成後才開始。
+                  this.initializeGSAP(); // 在 DOM 更新後初始化 GSAP
+                });
               },
               error: err => {
                 console.error("Error fetching data:", err);
               }
             });
+          },
+          methods: {
+            initializeGSAP() {
+              // 初始化 GSAP 動畫
+              const galleryImages = document.querySelectorAll(".container img");
+              galleryImages.forEach(img => {
+                img.addEventListener("click", event => {
+                  // 設定全螢幕圖片的來源
+                  const fullscreenImage = document.getElementById("fullscreen-image");
+                  const overlay = document.getElementById("fullscreen-overlay");
+        
+                  fullscreenImage.src = event.target.src;
+                  overlay.style.display = "flex";
+        
+                  // 添加動畫
+                  gsap.fromTo(
+                    fullscreenImage,
+                    { opacity: 0, scale: 0.5 },
+                    { opacity: 1, scale: 1, duration: 0.5 }
+                  );
+                });
+              });
+        
+              const overlay = document.getElementById("fullscreen-overlay");
+              overlay.addEventListener("mouseleave", () => {
+                // 關閉動畫
+                gsap.to("#fullscreen-image", {
+                  opacity: 0,
+                  scale: 0.5,
+                  duration: 0.5,
+                  onComplete: () => {
+                    overlay.style.display = "none";
+                  }
+                });
+              });
+            }
           }
         });
         
         photos.mount("#photography");
+        

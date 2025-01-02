@@ -92,38 +92,7 @@
         }
     </style>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const overlay = document.getElementById("fullscreen-overlay");
-            const fullscreenImage = document.getElementById("fullscreen-image");
-
-            // 找到所有圖片元素
-            const galleryImages = document.querySelectorAll(".container img");
-
-            let isOverlayVisible = false; // 是否顯示
-
-            galleryImages.forEach(img => {
-                img.addEventListener("click", (event) => {
-                    if (isOverlayVisible) return; // 如果虛擬視窗已顯示，忽略事件
-
-                    // 設定全螢幕圖片的來源
-                    fullscreenImage.src = event.target.src;
-                    overlay.style.display = "flex";
-                    isOverlayVisible = true;
-                });
-            });
-
-            // 移出關閉
-            fullscreenImage.addEventListener("mouseleave", () => {
-                overlay.style.display = "none";
-                isOverlayVisible = false;
-            });
-
-            // 點擊關閉
-            /*   overlay.addEventListener("click", () => {
-                   overlay.style.display = "none"; 
-                   isOverlayVisible = false; 
-               });*/
-        });
+      
     </script>
 </head>
 
