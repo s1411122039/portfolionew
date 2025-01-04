@@ -7,7 +7,7 @@ const server = express();
 const ContactDB = DB.create(__dirname + "/contact.db");
 
 // 靜態檔案
-server.use(express.static(__dirname));
+server.use(express.static(__dirname+"/project"));
 const ProfolioDB = DB.create(__dirname+"/porfolio.db");
 const paintingDB = DB.create(__dirname+"/painting.db");
 const photographyDB = DB.create(__dirname+"/photography.db");
