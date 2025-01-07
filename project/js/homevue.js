@@ -104,8 +104,8 @@ const nav2 =Vue.createApp({
     data(){
       return{
         socialLinks:[
-          {name:"Facebook",href:"#"},
-          {name:"Github",href:"#"}
+          {name:"Facebook",href:"https://www.facebook.com/profile.php?id=100001953610471"},
+          {name:"Github",href:"https://github.com/s1411122039"}
           
         ],
       };

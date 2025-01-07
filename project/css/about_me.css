@@ -13,7 +13,7 @@ header {
 }
 
 .navbar-brand img {
-    transition: transform 0.3s ease;
+   
 }
 
 .navbar-brand img:hover {
@@ -21,7 +21,7 @@ header {
 }
 
 .cta-button {
-    transition: background-color 0.3s ease;
+  
 }
 
 .cta-button:hover {
@@ -29,7 +29,7 @@ header {
 }
 
 .social-links a {
-    transition: transform 0.3s ease, color 0.3s ease;
+
     margin: 0 10px;
 }
 
@@ -39,7 +39,7 @@ header {
 }
 
 .img-fluid {
-    transition: transform 0.3s ease;
+   
 }
 
 .img-fluid:hover {

@@ -45,7 +45,7 @@
     opacity: 0;
     height: 0;
     overflow: hidden;
-    transition: opacity 0.3s ease, height 0.3s ease;
+ 
  }
  .btn {
   display: inline-block; 

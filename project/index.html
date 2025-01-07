@@ -41,7 +41,7 @@
       trigger: ".title",
       start: "top 90%",
       end: "top 50%",
-      scrub: false,
+      
      
     },
   });
@@ -54,7 +54,7 @@
       trigger: ".title-2",
       start: "top 90%",
       end: "top 50%",
-      scrub: false,
+      
       
     },
   });
@@ -74,58 +74,7 @@
 });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  // 取得所有的卡片
-  const cards = document.querySelectorAll('.card');
-  
-  cards.forEach(card => {
-    const title = card.querySelector('.card-title');
-    const content = card.querySelector('.card-text');
-    
-    // 滑鼠移入動畫
-    title.addEventListener('mouseenter', () => {
-     
-     
-     
-      gsap.to(content, { opacity: 1, height: 'auto', duration: 0.3,  });
-    });
-  
-    // 滑鼠移出動畫
-    title.addEventListener('mouseleave', () => {
-   
-      gsap.to(title, { y: 0, duration: 0.3,  });
-   
-      gsap.to(content, { opacity: 0, height: 0, duration: 0.3,  });
-    });
-  });
-});
-document.addEventListener("DOMContentLoaded", function () {
-const buttons = document.querySelectorAll('.animated-btn');
 
-  // 為每個按鈕添加事件
-  buttons.forEach(button => {
-    // 滑鼠移入時
-    button.addEventListener('mouseenter', () => {
-      gsap.to(button, {
-        duration: 0.3, // 動畫時間
-        width: '100%', // 寬度增加
-       
-      });
-    });
-
-    // 滑鼠移出時
-    button.addEventListener('mouseleave', () => {
-      gsap.to(button, {
-        duration: 0.3, // 動畫時間
-        width: '40%', // 恢復原始寬度
-       
-      });
-    });
-  });
-});
-
-// 頁面載入時執行建築上升動畫
-gsap.registerPlugin(ScrollTrigger);
 
 
 </script>
@@ -164,12 +113,8 @@ gsap.registerPlugin(ScrollTrigger);
   <!-- 藍天背景 -->
   <div class="bg-sky" style="background-image: url('picture/IMG_6566.jpg'); background-size: cover; background-position: center; position: absolute; width: 100%; height: 100%; z-index: 1;"></div>
   
-  <!-- 建築圖片 -->
-  <div class="building building-1" style="background-image: url('picture/01.png'); background-size: contain; background-repeat: no-repeat; position: absolute; width: 20%; height: auto; bottom: 0%; left: 10%; z-index: 2;"></div>
-  <div class="building building-2" style="background-image: url('picture/02.png'); background-size: contain; background-repeat: no-repeat; position: absolute; width: 20%; height: auto; bottom: 0%; left: 30%; z-index: 2;"></div>
-  <div class="building building-3" style="background-image: url('picture/03.png'); background-size: contain; background-repeat: no-repeat; position: absolute; width: 20%; height: auto; bottom: 0%; left: 50%; z-index: 2;"></div>
-  <div class="building building-4" style="background-image: url('picture/04.png'); background-size: contain; background-repeat: no-repeat; position: absolute; width: 20%; height: auto; bottom: 0%; left: 70%; z-index: 2;"></div>
-  <div class="building building-5" style="background-image: url('picture/05.png'); background-size: contain; background-repeat: no-repeat; position: absolute; width: 20%; height: auto; bottom: 0%; left: 90%; z-index: 2;"></div>
+ 
+ 
 
   <!-- 文案 -->
   <div class="container" style="z-index: 3;">

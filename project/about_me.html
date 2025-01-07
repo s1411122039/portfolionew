@@ -80,7 +80,10 @@
                         </a>
                     </div>
                 </div>
-                <a href="mailto:abc0979775465@gmail.com" class="cta-button btn btn-primary mt-3">發送郵件</a>
+                                                   <!--view-cm告訴開啟gmail視窗 fs=1全螢幕 to=指定人 -->
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=abc0979775465@gmail.com" 
+                target="_blank" 
+                class="cta-button btn btn-primary mt-3">發送郵件</a>
             </div>
         </div>
     </section>
@@ -96,12 +99,12 @@
             delay: 0.5,
             scrollTrigger: {
                 trigger: ".img-fluid",
-                start: "top 80%",
+                start: "top 40%",
                 end: "bottom 30%",
-                scrub: true
+               
             }
         });
-        gsap.from("h2, p", { opacity: 0, duration: 1.5, y: 30, delay: 1, stagger: 0.2 });
+        gsap.from("h2, p", { opacity: 0, duration: 1.5, y: 30, delay: 1, });
     </script>
 </body>
 </html>
