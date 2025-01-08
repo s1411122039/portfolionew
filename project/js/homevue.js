@@ -139,19 +139,22 @@ const nav2 =Vue.createApp({
       data() {
         return {
           paintings: [
-          
-          
-          ],
+            { title: "光柵動畫", description: "", imgsrc: "picture/time.jpg" },
+            { title: "手繪怪物設計", description: "", imgsrc: "picture/monster.jpg" },
+            { title: "手繪人體設計", description: "", imgsrc: "picture/body.jpg" },
+            { title: "手翻書", description: "", imgsrc: "picture/basketballbook.png" },
+            { title: "材質縫合", description: "", imgsrc: "picture/02.jpg" },
+            { title: "點線面繪畫", description: "", imgsrc: "picture/03.jpg" }
+          ]
         };
-      
       },
-      mounted(){
+      mounted() {
         $.ajax({
           url: "/painting",
           method: "get",
           dataType: "json",
           success: results => {
-            this.paintings = results; // 將資料賦值給 Vue 的 cards
+            this.paintings = results; // 將資料賦值給 Vue 的 paintings
           },
           error: err => {
             console.error("Error fetching data:", err);
@@ -159,6 +162,7 @@ const nav2 =Vue.createApp({
         });
       }
     });
+    
     painting.mount('#painting');
     //photography
     const nav4 =Vue.createApp({
@@ -204,6 +208,8 @@ const nav2 =Vue.createApp({
         
         
         nav5.mount("#nav5")
+      
+
         //photography
         const photos = Vue.createApp({
           data() {

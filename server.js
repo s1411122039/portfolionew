@@ -23,22 +23,19 @@ server.use(express.urlencoded({ extended: true }));
 
 /*const paintingData = [
   
-    { src: 'picture/IMG_7592.jpg', alt: '攝影作品1', title: '夕陽' },
-        { src: 'picture/IMG_6072.jpg', alt: '攝影作品2', title: '台中歌劇院' },
-        { src: 'picture/IMG_6383.jpg', alt: '攝影作品3', title: '雲層' },
-        { src: 'picture/IMG_6716.jpg', alt: '攝影作品4', title: '湖面 1' },
-        { src: 'picture/IMG_7084.jpg', alt: '攝影作品5', title: '湖面 2' },
-        { src: 'picture/IMG_7996.jpg', alt: '攝影作品6', title: '湖面3' },
-        { src: 'picture/IMG_7430.jpg', alt: '攝影作品7', title: '落日前' },
-        { src: 'picture/IMG_8383.jpg', alt: '攝影作品8', title: '繁榮城市' },
-        { src: 'picture/IMG_9262 (1).jpg', alt: '攝影作品9', title: '台中火車站' },
+  { title: "光柵動畫", description: "", imgsrc: "picture/time.jpg" },
+  { title: "手繪怪物設計", description: "", imgsrc: "picture/monster.jpg" },
+  { title: "手繪人體設計", description: "", imgsrc: "picture/body.jpg" },
+  { title: "手翻書", description: "", imgsrc: "picture/basketballbook.png" },
+  { title: "材質縫合", description: "", imgsrc: "picture/02.jpg" },
+  { title: "點線面繪畫", description: "", imgsrc: "picture/03.jpg" }
   
  
   
 ];
 
-// 直接插入資料
-photographyDB.insert(paintingData)
+ //直接插入資料
+paintingDB.insert(paintingData)
   .then(() => console.log("Initial painting data inserted"))
   .catch(err => console.error("Error inserting initial data:", err));*/
    
