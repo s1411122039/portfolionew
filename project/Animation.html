@@ -14,12 +14,34 @@
 </head>
 
 <style>
-footer {
-    background: #222;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
+/* 整體背景顏色 */
+body {
+    background: linear-gradient(135deg, #f0f8ff, #e6f7ff);
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
+
+/* 卡片背景 */
+.work-card {
+    background-color: #ffffff;
+    border: 1px solid #e3e3e3;
+}
+
+/* 導航欄背景顏色 */
+.navbar {
+    background-color: #007bff; /* 深藍色 */
+    border-bottom: 2px solid #0056b3;
+}
+
+
+
+
+
+
+
+
 </style>
 
 <body>
@@ -105,37 +127,62 @@ footer {
     </footer>
 
     <script>
-        // GSAP 動畫效果
-        document.addEventListener('DOMContentLoaded', function () {
-            // 導航欄淡入效果
-            gsap.from('.navbar', { opacity: 0, duration: 1, y: -50 });
+       // GSAP 動畫效果
+    document.addEventListener('DOMContentLoaded', function () {
+        // 導航欄淡入效果
+        gsap.from('.navbar', { opacity: 0, duration: 1, y: -50 });
 
-            // 作品卡片淡入並放大效果，當用戶滾動進入視口時觸發
-            gsap.from('.work-card', {
-                opacity: 0,
-                scale: 0.5,
-                duration: 1,
-               
-                scrollTrigger: {
-                    trigger: '.work-card',
-                    start: 'top bottom',
-                    end: 'bottom top',
-                  
-                }
-            });
-
-            // 影片淡入效果，當用戶滾動進入視口時觸發
-            gsap.from('.video', {
-                opacity: 0,
-                duration: 1,
-                scrollTrigger: {
-                    trigger: '.video',
-                    start: 'top bottom',
-                    end: 'bottom top',
-                    
-                }
-            });
+        // 作品卡片淡入並放大效果，當用戶滾動進入視口時觸發
+        gsap.from('.work-card', {
+            opacity: 0,
+            x: -50,
+            duration: 1,
+            stagger: 0.2, // 延遲動畫順序
+            scrollTrigger: {
+                trigger: '.work-card',
+                start: 'top bottom',
+                end: 'bottom top',
+            }
         });
+
+        // 影片淡入效果，當用戶滾動進入視口時觸發
+        gsap.from('.video', {
+            opacity: 0,
+            duration: 1,
+            y: 50,
+            scrollTrigger: {
+                trigger: '.video',
+                start: 'top bottom',
+                end: 'bottom top',
+            }
+        });
+
+        // 標題打字效果
+        const title = document.querySelector('.title-2');
+        if (title) {
+            let text = title.textContent;
+            title.textContent = '';
+            let i = 0;
+
+            const typingEffect = setInterval(() => {
+                if (i < text.length) {
+                    title.textContent += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typingEffect);
+                }
+            }, 100); // 打字速度
+        }
+
+        // 提交按鈕 hover 效果
+        const submitButton = document.querySelector('button[type="submit"]');
+        submitButton.addEventListener('mouseenter', () => {
+            gsap.to(submitButton, { scale: 1.1, duration: 0.3 });
+        });
+        submitButton.addEventListener('mouseleave', () => {
+            gsap.to(submitButton, { scale: 1, duration: 0.3 });
+        });
+    });
     </script>
 
     <script src="/js/homevue.js"></script>

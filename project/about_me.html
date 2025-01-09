@@ -14,7 +14,37 @@
 
     
 </head>
+<style>
+  body {
+    background: linear-gradient(to bottom, #f0f8ff, #e6e6fa);
+    font-family: 'Arial', sans-serif;
+}
 
+h1 {
+    font-size: 3rem;
+    color: #333;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #007bff;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.btn {
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.img-fluid {
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+</style>
 <body>
     <div id="nav2">
         <nav class="navbar navbar-expand-sm bg-primary navbar-dark sticky-top">
@@ -90,21 +120,60 @@
 
     <script src="/js/homevue.js"></script>
     <script>
-        // 使用 GSAP 動畫
-        gsap.from(".navbar", { opacity: 0, duration: 1, y: -50 });
-        gsap.from(".img-fluid", {
-            opacity: 0,
-            duration: 1.5,
-            scale: 0.8,
-            delay: 0.5,
-            scrollTrigger: {
-                trigger: ".img-fluid",
-                start: "top 40%",
-                end: "bottom 30%",
-               
-            }
-        });
-        gsap.from("h2, p", { opacity: 0, duration: 1.5, y: 30, delay: 1, });
-    </script>
+      // 標題動畫
+      gsap.from("header h1", { 
+          opacity: 0, 
+          y: -50, 
+          duration: 1, 
+          ease: "power4.out" 
+      });
+  
+      // 圖片滾動與懸停效果
+      gsap.from(".img-fluid", {
+          opacity: 0,
+          duration: 1.5,
+          scale: 0.8,
+          delay: 0.5,
+          scrollTrigger: {
+              trigger: ".img-fluid",
+              start: "top 80%",
+              end: "bottom 40%",
+              scrub: true,
+          }
+      });
+      document.querySelectorAll(".img-fluid").forEach(img => {
+          img.addEventListener("mouseover", () => {
+              gsap.to(img, { scale: 1.1, duration: 0.5, ease: "power4.out" });
+          });
+          img.addEventListener("mouseout", () => {
+              gsap.to(img, { scale: 1, duration: 0.5, ease: "power4.out" });
+          });
+      });
+  
+      // 段落動畫
+      gsap.from(".row > div", { 
+          opacity: 0, 
+          y: 50, 
+          duration: 1, 
+          delay: 0.5, 
+          stagger: 0.3,
+          scrollTrigger: {
+              trigger: ".row",
+              start: "top 80%",
+              end: "bottom 60%",
+          }
+      });
+  
+      // 按鈕懸停動畫
+      document.querySelectorAll(".cta-button").forEach(button => {
+          button.addEventListener("mouseover", () => {
+              gsap.to(button, { scale: 1.1, backgroundColor: "#0056b3", duration: 0.3 });
+          });
+          button.addEventListener("mouseout", () => {
+              gsap.to(button, { scale: 1, backgroundColor: "#0d6efd", duration: 0.3 });
+          });
+      });
+  </script>
+  
 </body>
 </html>

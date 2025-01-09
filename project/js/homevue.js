@@ -224,41 +224,55 @@ const nav2 =Vue.createApp({
               method: "get",
               dataType: "json",
               success: results => {
-                this.photos = results; 
-                this.$nextTick(() => {//用於處理確保DOM執行完成後才開始。
-                  this.initializeGSAP(); // 在 DOM 更新後初始化 GSAP
-                });
+                this.photos = results; // 更新數據，觸發 Vue 的更新
               },
               error: err => {
                 console.error("Error fetching data:", err);
               }
             });
           },
+          updated() {
+            // 每次 DOM 更新後初始化 GSAP
+            this.initializeGSAP();
+          },
           methods: {
             initializeGSAP() {
               // 初始化 GSAP 動畫
               const galleryImages = document.querySelectorAll(".container img");
+              const overlay = document.getElementById("fullscreen-overlay");
+              const fullscreenImage = document.getElementById("fullscreen-image");
+        
               galleryImages.forEach(img => {
                 img.addEventListener("click", event => {
-                  // 設定全螢幕圖片的來源
-                  const fullscreenImage = document.getElementById("fullscreen-image");
-                  const overlay = document.getElementById("fullscreen-overlay");
+                  // 檢查虛擬視窗是否已顯示
+                  if (overlay.style.display === "flex") {
+                    // 關閉虛擬視窗
+                    gsap.to("#fullscreen-image", {
+                      opacity: 0,
+                      scale: 0.5,
+                      duration: 0.5,
+                      onComplete: () => {
+                        overlay.style.display = "none";
+                      }
+                    });
+                  } else {
+                    // 顯示虛擬視窗
+                    fullscreenImage.src = event.target.src;
+                    overlay.style.display = "flex";
         
-                  fullscreenImage.src = event.target.src;
-                  overlay.style.display = "flex";
-        
-                  // 添加動畫
-                  gsap.fromTo(
-                    fullscreenImage,
-                    { opacity: 0, scale: 0.5 },
-                    { opacity: 1, scale: 1, duration: 0.5 }
-                  );
+                    // 添加動畫
+                    gsap.fromTo(
+                      fullscreenImage,
+                      { opacity: 0, scale: 0.5 },
+                      { opacity: 1, scale: 1, duration: 0.5 }
+                    );
+                  }
                 });
               });
         
-              const overlay = document.getElementById("fullscreen-overlay");
-              overlay.addEventListener("mouseleave", () => {
-                // 關閉動畫
+              // 添加虛擬視窗的額外關閉功能
+              overlay.addEventListener("click", () => {
+                // 關閉虛擬視窗
                 gsap.to("#fullscreen-image", {
                   opacity: 0,
                   scale: 0.5,
